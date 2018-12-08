@@ -1,4 +1,3 @@
-
 import java.util.Arrays;
 
 /** A class that implements a list of objects by using an array.
@@ -283,8 +282,21 @@ class AList<T> implements ListInterface<T> {
     /** Reverse the order of items in a list.
     */
     public void reverse()
-    {
-        // COMPLETE THIS METHOD       
+    { 
+    	 //METHODS TO BE COMPLETED
+    	//checking that list is not empty
+    	if(!this.isEmpty())
+    	{
+    		int length=this.getLength();
+    		int i=1,j=length;
+    		T temp;
+    		while(i<j)
+    		{temp=this.getEntry(i);
+    		list[i]=this.getEntry(j);
+    		list[j]=temp;
+    		i++ ; j--;
+    		}
+    	}
     }
     
     
@@ -292,7 +304,21 @@ class AList<T> implements ListInterface<T> {
     */
     public void cycle()
     {
-        // COMPLETE THIS METHOD       
-    }
+    	
+    	T first=this.getEntry(1);       //first entry saving
+    	int length=this.getLength(); //getting length of list
+    	int i=1,j=i+1;
+    	T temp;
 
+    	while(i<length)           
+    	{
+        temp=this.getEntry(i);
+    	list[i]=this.getEntry(j);          //swapping 
+    	list[j]=temp;
+    	j++;i++;
+
+    	}
+    list[j]=first;
+    }
 }
+

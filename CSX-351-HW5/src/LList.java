@@ -250,7 +250,7 @@ class LList<T> implements ListInterface<T> {
 
         Node currOne = firstNode;
         Node currTwo = aList.firstNode;
-        int counter;
+        //int counter;
 
         if (numberOfEntries == aList.numberOfEntries) {
             // Lists have equal lengths, so traverse both and compare items as you go:
@@ -279,17 +279,41 @@ class LList<T> implements ListInterface<T> {
 
     /** Reverse the order of items in a list.
      */
+    
+      
     public void reverse() {
 
-        // CODE TO BE COMPLETED        
+        //Checking list is not empty
+    	if(!this.isEmpty())
+    	{
+    		
+    		int length=this.getLength();              //Getting length of the list
+    		int i=1,j=length;                         //initializing first and last element
+    		T temp;                               //declaring temp
+    		
+    		//Swapping the ith and jth elements from beginning and end
+    		while(i<j)
+    		{
+    			temp=this.getEntry(i);                    //initialize temp with ith entry of list
+    			this.replace(i,this.getEntry(j));         //replace ith entry of list with jth entry
+    			this.replace(j, temp);                    //replace jth entry with temp
+    			i++;j--;                                  //increment i and decrement j
+    			
+    		}
+    	}
 
     }
 
+      
     /** Cycle the first item to the end of the list.
      */
     public void cycle() {
-
-        // CODE TO BE COMPLETED        
-
+    	//checking that list is not empty
+    	if(!this.isEmpty())
+    	{
+    		T first=this.getEntry(1);                //initialize y as first element of list
+    		this.remove(1);                     //now remove first from list and
+    		this.add(first);                        //add it to the end of this list
+    	}
     }
 }
